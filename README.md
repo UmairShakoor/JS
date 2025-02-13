@@ -1,4 +1,4 @@
-# 👶 Umair's JavaScript Learning Journey 👣
+# Umair's JavaScript Learning Journey 👣
 
 Hi everyone! I'm Umair Shakoor, and this repository is a place for me to document my progress as I learn JavaScript. I'm just starting out, so you'll find examples and exercises focused on the fundamentals of JS.  Think of this as my coding notebook!
 
