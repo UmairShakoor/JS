@@ -73,3 +73,5 @@ console.log(Math.random()); // Generates a random decimal between 0 and 1
 console.log(Math.floor(3.14)); // Rounds down to the nearest integer
 console.log(Math.floor(3.99)); // Output: 3
 console.log(Math.floor(-3.14)); // Output: -4 (rounds down even for negative numbers)
+
+// Math.ceil() is opposite to Math.floor() . Means it increase the number to closest 
