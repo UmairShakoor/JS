@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS DOM</title>
+    <link rel="icon" href="/Assets/Icon/favicon.ico">
+    <style>
+        .box{
+            height:45px;
+            width:45px;
+            border:2px solid black;
+            margin:2% 0;
+            padding:1%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Box1</div>
+        <div class="box">Box2</div>
+        <div class="box">Box3</div>
+        <div class="box">Box4</div>
+        <div class="box">Box5</div>
+    </div>
+    <table border="1" cellpadding="2">
+        <thead>
+            <tr>
+                <th>Roll no.</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+    </table>
+    
+    <script>
+    // childNode and parentElement
+        console.log(document.body);
+        console.log(document.body.childNodes);
+        console.log(document.body.childNodes[0]); // White Spaces & simple text without any tag between elements in html are also considered as text nodes
+        console.log(document.body.childNodes[1]); // We can also use index to get a child
+        console.log(document.body.childNodes[1].childNodes);
+        let cont = document.body.childNodes[1];
+        // document.hasChildNodes("div"); To Check either it has a given Chile Node or not
+        
+        console.log(cont.firstChild);
+        console.log(cont.firstElementChild);
+        console.log(cont.lastChild);
+        console.log(cont.lastElementChild);
+        cont.lastElementChild.style.Color = "red";
+        console.log(cont.lastElementChild.parentElement);
+        // If we add a comment in html , it will considered as a comment node
+        console.log(cont.firstElementChild.children); // This only gives html elements
+        console.log(cont.firstElementChild.children[0]);
+    
+        // Siblings (Two childs are siblings to each other if they have the same parent)
+        console.log(cont.firstElementChild.children[3].nextElementSibling); // Gives Element Siblings
+        console.log(cont.firstElementChild.children[3].previousElementSibling);
+        
+        console.log(cont.firstElementChild.children[3].nextSibling); // Gives Siblings as ChildNodes
+        
+        // console.log(document.body.matches("#body")); // Checks if the element matches the given CSS Selector or not
+        
+        // console.log(document.body.closest("html")); // To look for the neareast ancestor and returns it and also checks itself
+        
+        // console.log(document.body.contains("div")); // Checks either the parent contains an element or not
+        
+        // Table Manipulation
+        console.log(document.body.table.columns);
+        console.log(document.body.table.rows);
+    </script>
+</body>
+</html>
