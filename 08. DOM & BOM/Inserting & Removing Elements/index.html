@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inserting & Removing Elem via DOM</title>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont red bg-green">
+        <div class="box" style="display:flex;" data-createdBy="Umair" data-conceptby="Harry">I am a box</div>
+        <div class="box">I am a box</div>
+    </div>
+    <script>
+    
+        console.log(document.querySelector(".box").innerHTML);
+        document.querySelector(".box").innerHTML = "Hey I am Umair";
+        console.log(document.querySelector(".box").innerText); // Gives only text
+        console.log(document.querySelector(".box").hasAttribute("style")); // Checks for the given attribute
+        console.log(document.querySelector(".box").getAttribute("style")); // Gives the value of an attribute
+        document.querySelector(".box").setAttribute("style","display:inline;"); // Set or Update an attribute & value
+        console.log(document.querySelector(".box").attributes); // Gives collection of all atributes contained
+        document.querySelector(".box").removeAttribute("style"); // Removes an attribute
+        console.log(document.querySelector(".box").dataset); // Gives the data attributes as , data-createdby = "Umair" .. It gives attributes only that are started with "data"
+        console.log(document.querySelector(".box").dataset.createdBy); // To access a single specific data set
+
+        console.log(document.querySelector(".cont").innerHTML);
+        console.log(document.querySelector(".cont").outerHTML);
+        console.log(document.querySelector(".cont").tagName); // Useful on elements only
+        console.log(document.querySelector(".cont").nodeName); // Works on all ChildNode
+        console.log(document.querySelector(".cont").textContent); // Gives text but adds white spaces where a child tag is present
+        console.log(document.querySelector(".cont").hidden);
+        // console.log(document.querySelector(".cont").hidden = true);
+        // hidden attribute works same as visibility:hidden;
+    
+        document.designMode = "on"; // To change the content of WebPage directly without editing Source Code
+        
+        // Inserting an Element
+        let div = document.createElement("div");
+        // div.innerHTML = "I have been created by <b>Umair</b>";
+        div.setAttribute("class","created");
+        // document.querySelector(".cont").append(div); // Insert element at the last inside the targeted node
+        document.querySelector(".cont").prepend(div); // Insert element at the begining, inside the targeted node
+        // document.querySelector(".cont").before(div); // Insert element before the targeted node
+        // document.querySelector(".cont").after(div); // Insert element after the targeted node
+        // document.querySelector(".cont").replaceWith(div); // Replaces the targeted node
+
+        let cont = document.querySelector(".cont");
+        
+// AdjacentHTML
+        // cont.insertAdjacentHTML("afterbegin","I am <b>first child</b> of cont");
+        // cont.insertAdjacentHTML("beforebegin","I am <b>first child</b> of cont");
+        // cont.insertAdjacentHTML("afterend","I am <b>first child</b> of cont");
+        // cont.insertAdjacentHTML("beforeend","I am <b>first child</b> of cont");
+        
+// AdjacentText
+        // let node = document.createElement("div").innerText = "Node";
+    // cont.insertAdjacentText("afterbegin",node);
+    // cont.insertAdjacentText("beforebegin",node);
+    // cont.insertAdjacentText("beforeend",node);
+    // cont.insertAdjacentText("afterend",node);
+        
+// Adjacent Element        
+        let node = document.createElement("div");
+// document.querySelector(".cont").insertAdjacentElement("afterbegin",node);
+// document.querySelector(".cont").insertAdjacentElement("beforebegin",node);
+// document.querySelector(".cont").insertAdjacentElement("beforeend",node);
+// document.querySelector(".cont").insertAdjacentElement("afterend",node);
+node.style = "width:45px; height:45px; background:black;" ;
+        
+        // Removing Element
+        document.querySelector(".box").remove();
+        
+        // Class Manipulation
+        console.log(cont.classList); // Gives all classes of that node
+        console.log(cont.className); // Gives names of all classes of that node
+        cont.classList.add("Umair");
+        cont.classList.remove("Umair");
+        cont.classList.toogle("red"); // Toogle : Removes if exist , Adds if not exist
+</body>
+</html>
